@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repl Database in Node.js</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p><a href="https://badge.fury.io/js/replitdb-client"><img src="https://badge.fury.io/js/replitdb-client.svg" alt="npm version"></a><br>
+<a href="https://repl.it/github/mrlapizgithub/repl.it-db"><img src="https://repl.it/badge/github/mrlapizgithub/repl.it-db" alt="Run on Repl.it"></a></p>
+<h1 id="repl.it-db-client"><a href="http://Repl.it">Repl.it</a> DB Client</h1>
+<p>Repl.it-db client is a simple way to use the <a href="http://repl.it">repl.it</a> database. It uses <code>await/async</code>.</p>
+<h2 id="get-started">Get started</h2>
+<pre class=" language-js"><code class="prism  language-js">
+<span class="token keyword">const</span>  Client <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"replitdb-client"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> client <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Client</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">await</span>  Client<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span> <span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> key <span class="token operator">=</span> <span class="token keyword">await</span>  Client<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h2 id="docs">Docs</h2>
+<h3 id="class-clientstring-key"><code>class Client(String key?)</code></h3>
+<p>The key is the optional custom URL.</p>
+<p><strong>Native Functions</strong></p>
+<p>These functions are specified in the <a href="http://repl.it">repl.it</a> DB.</p>
+<blockquote>
+<p><code>get(String key, Object options?)</code></p>
+</blockquote>
+<p>Gets a key. Returns Promise.</p>
+<pre class=" language-js"><code class="prism  language-js">
+Client<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> raw<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<blockquote>
+<p><code>set(String key, Any value)</code></p>
+</blockquote>
+<p>Sets a key to value. Returns Client.</p>
+<blockquote>
+<p><code>delete(String key)</code></p>
+</blockquote>
+<p>Deletes a key. Returns Client.</p>
+<blockquote>
+<p><code>list(String? prefix)</code></p>
+</blockquote>
+<p>Lists all of the keys, or all of the keys starting with <code>prefix</code> if specifed.</p>
+<p><strong>Dynamic Functions</strong></p>
+<p>These functions have been added by me.</p>
+<blockquote>
+<p><code>empty()</code></p>
+</blockquote>
+<p>Clears the database. Returns Client</p>
+<blockquote>
+<p><code>getAll()</code></p>
+</blockquote>
+<p>Get all key/value pairs and return as an object.</p>
+<blockquote>
+<p><code>setAll(Object obj)</code></p>
+</blockquote>
+<p>Sets the entire database through a key/value object. Returns Client</p>
+<blockquote>
+<p><code>deleteMultiple(...String args)</code></p>
+</blockquote>
+<p>Deletes multiple keys. Returns client.</p>
+<h2 id="tests">Tests</h2>
+<pre class=" language-sh"><code class="prism  language-sh">
+npm i
+
+npm run test
+
+</code></pre>
+</div>
+</body>
+
+</html>
